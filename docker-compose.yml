@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ~/.docker-conf/node-micro-rabbitmq/data/:/var/lib/rabbitmq/
+        - ~/.docker-conf/node-micro-rabbitmq/log/:/var/log/rabbitmq
+  db:
+    image: mysql/mysql-server:8.0.23
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'yt_node_admin'
+      MYSQL_USER: 'my-user'
+      MYSQL_PASSWORD: 'my-pass'
+      MYSQL_ROOT_PASSWORD: 'rootroot'
+    ports:
+      - '3306:3306'
+    volumes:
+      - ~/.docker-conf/node-micro-mysql/data/:/var/lib/mysql
