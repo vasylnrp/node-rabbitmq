@@ -5,3 +5,12 @@ Up DBs `docker-compose up`
 run `npm start`
 
 
+`cd ../main`
+`tsc -w`
+run `npm start`
+
+### RabbitMQ
+http://localhost:15672/
+guest/guest
+
+

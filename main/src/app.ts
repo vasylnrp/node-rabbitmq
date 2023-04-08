@@ -9,7 +9,7 @@ import axios from 'axios';
 createConnection().then(db => {
     const productRepository = db.getMongoRepository(Product)
 
-    amqp.connect('rabbitmq_url', (error0, connection) => {
+    amqp.connect('amqp://guest:guest@localhost:5672/', (error0, connection) => {
         if (error0) {
             throw error0
         }
