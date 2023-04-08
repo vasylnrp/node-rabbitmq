@@ -41,9 +41,9 @@ var cors = require("cors");
 var typeorm_1 = require("typeorm");
 var product_1 = require("./entity/product");
 var amqp = require("amqplib/callback_api");
-typeorm_1.createConnection().then(function (db) {
+(0, typeorm_1.createConnection)().then(function (db) {
     var productRepository = db.getRepository(product_1.Product);
-    amqp.connect('rabbitmq_url', function (error0, connection) {
+    amqp.connect('amqp://guest:guest@localhost:5672/', function (error0, connection) {
         if (error0) {
             throw error0;
         }

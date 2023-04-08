@@ -8,7 +8,7 @@ import * as amqp from 'amqplib/callback_api';
 createConnection().then(db => {
     const productRepository = db.getRepository(Product);
 
-    amqp.connect('rabbitmq_url', (error0, connection) => {
+    amqp.connect('amqp://guest:guest@localhost:5672/', (error0, connection) => {
         if (error0) {
             throw error0
         }
